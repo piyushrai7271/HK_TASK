@@ -1,25 +1,13 @@
 {
-  "name": "hk_task",
+  "name": "server",
   "version": "1.0.0",
-  "description": "A task maneger",
-  "homepage": "https://github.com/piyushrai7271/HK_TASK#readme",
-  "bugs": {
-    "url": "https://github.com/piyushrai7271/HK_TASK/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/piyushrai7271/HK_TASK.git"
-  },
-  "license": "ISC",
-  "author": "piyush rai",
-  "type": "commonjs",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.0",
-    "express": "^5.1.0"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
 }
