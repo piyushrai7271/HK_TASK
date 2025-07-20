@@ -20,12 +20,35 @@
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       width: 100%;
-      max-width: 400px;
+      max-width: 450px;
+    }
+
+    h1 {
+      text-align: center;
+      color: blue;
+      text-decoration: underline;
+      margin-bottom: 5px;
     }
 
     h2 {
       text-align: center;
       color: #333;
+    }
+
+    nav {
+      text-align: center;
+      margin: 10px 0 20px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     label {
@@ -75,10 +98,38 @@
     .export-button:hover {
       background-color: #1e7e34;
     }
+
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .back-home a {
+      color: #555;
+      text-decoration: none;
+    }
+
+    .back-home a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
   <div class="form-container">
+    <!-- 🔵 Admin Page Title -->
+    <h1>Admin Page</h1>
+
+    <!-- 🧭 Admin Navigation -->
+    <nav>
+      <a href="/add-user">Add User</a>
+      <a href="/add-task">Add Task</a>
+      <a href="/view-users">View Users</a>
+      <a href="/export-excel">Export</a>
+    </nav>
+
+    <!-- 📝 Add Task Section -->
     <h2>Add Task</h2>
 
     {{#if success}}
@@ -94,10 +145,10 @@
       </select>
 
       <label>Task Name:</label>
-      <input type="text" name="task_name" required>
+      <input type="text" name="task_name" required />
 
-      <label>Task Type:</label>
-      <select name="task_type">
+      <label>Task Status:</label>
+      <select name="task_status">
         <option value="Pending">Pending</option>
         <option value="Done">Done</option>
       </select>
@@ -105,10 +156,14 @@
       <button type="submit">Add Task</button>
     </form>
 
-    <!-- ✅ Export Button -->
     <a href="/export-excel">
       <button type="button" class="export-button">📁 Export to Excel</button>
     </a>
+
+    <!-- 🏠 Back to Home -->
+    <div class="back-home">
+      <a href="/">← Back to Home</a>
+    </div>
   </div>
 
   <script src="/js/validateTaskForm.js"></script>

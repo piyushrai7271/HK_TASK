@@ -8,12 +8,12 @@ class Task extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['user_id', 'task_name', 'task_type'],
+      required: ['user_id', 'task_name', 'task_status'],
       properties: {
         id: { type: 'integer' },
         user_id: { type: 'integer' },
         task_name: { type: 'string' },
-        task_type: { type: 'string', enum: ['Pending', 'Done'] }
+        task_status: { type: 'string', enum: ['Pending', 'Done'] }
       }
     };
   }

@@ -21,10 +21,10 @@
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       width: 100%;
       max-width: 400px;
+      text-align: center;
     }
 
     h2 {
-      text-align: center;
       color: #333;
     }
 
@@ -33,6 +33,7 @@
       margin-top: 15px;
       font-weight: bold;
       color: #555;
+      text-align: left;
     }
 
     input {
@@ -62,8 +63,20 @@
 
     .success-message {
       color: green;
-      text-align: center;
       margin-bottom: 10px;
+    }
+
+    .home-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: underline;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .home-link:hover {
+      color: #0056b3;
     }
   </style>
 </head>
@@ -87,6 +100,9 @@
 
       <button type="submit">Add User</button>
     </form>
+
+    <!-- 🔗 Home Link -->
+    <a href="/" class="home-link">← Back to Home</a>
   </div>
 
   <script src="/js/validateUserForm.js"></script>
