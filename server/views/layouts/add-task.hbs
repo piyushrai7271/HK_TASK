@@ -1,0 +1,31 @@
+<h2>Add Task</h2>
+
+{{#if success}}
+  <p style="color: green;">✅ Task added successfully!</p>
+{{/if}}
+
+<form action="/api/tasks" method="POST">
+  <label for="user_id">Assign To User:</label>
+  <select name="user_id" id="user_id" required>
+    {{#each users}}
+      <option value="{{this.id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+
+  <br>
+
+  <label for="task_name">Task Name:</label>
+  <input type="text" name="task_name" id="task_name" required />
+
+  <br>
+
+  <label for="task_type">Task Type:</label>
+  <select name="task_type" id="task_type" required>
+    <option value="Pending">Pending</option>
+    <option value="Done">Done</option>
+  </select>
+
+  <br><br>
+
+  <button type="submit">Add Task</button>
+</form>

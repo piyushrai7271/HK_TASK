@@ -1,17 +1,33 @@
-const Task = require('../models/Task');
+const Task = require('../models/task');
 
-exports.createTask = async (req, res) => {
+const createTask = async (req, res) => {
   try {
     const { user_id, task_name, task_type } = req.body;
-    const task = await Task.query().insert({ user_id, task_name, task_type });
-    res.status(201).json(task);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
+
+    await Task.query().insert({
+      user_id: parseInt(user_id),
+      task_name,
+      task_type
+    });
+
+    res.redirect('/add-task?success=true'); // ✅ Redirect with flag
+  } catch (error) {
+    console.error('Error adding task:', error);
+    res.status(500).send({ error: error.message });
   }
 };
 
-exports.getTasksByUser = async (req, res) => {
-  const { id } = req.params;
-  const tasks = await Task.query().where('user_id', id);
-  res.json(tasks);
+const getTasksByUser = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const tasks = await Task.query().where('user_id', userId);
+    res.status(200).json(tasks);
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+};
+
+module.exports = {
+  createTask,
+  getTasksByUser
 };

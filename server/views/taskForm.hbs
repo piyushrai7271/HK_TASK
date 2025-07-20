@@ -1,0 +1,33 @@
+<h2>Add Task</h2>
+
+{{#if success}}
+  <p style="color: green;">✅ Task added successfully!</p>
+{{/if}}
+
+<form action="/api/tasks" method="POST" onsubmit="return validateTaskForm()">
+  <label>User:</label><br>
+  <select name="user_id" required>
+    {{#each users}}
+      <option value="{{id}}">{{name}}</option>
+    {{/each}}
+  </select><br>
+
+  <label>Task Name:</label><br>
+  <input type="text" name="task_name" required><br>
+
+  <label>Task Type:</label><br>
+  <select name="task_type">
+    <option value="Pending">Pending</option>
+    <option value="Done">Done</option>
+  </select><br>
+
+  <button type="submit">Add Task</button>
+</form>
+
+<!-- ✅ ADD BUTTON HERE -->
+<br><br>
+<a href="/export-excel">
+  <button type="button">📁 Export to Excel</button>
+</a>
+
+<script src="/js/validateTaskForm.js"></script>
