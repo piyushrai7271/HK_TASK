@@ -1,20 +1,94 @@
-<h2>Add User</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add User</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-{{#if success}}
-  <p style="color: green;">✅ User added successfully!</p>
-{{/if}}
+    .form-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
 
-<form action="/api/users" method="POST" onsubmit="return validateUserForm()">
-  <label>Name:</label><br>
-  <input type="text" name="name" required><br>
+    h2 {
+      text-align: center;
+      color: #333;
+    }
 
-  <label>Email:</label><br>
-  <input type="email" name="email" required><br>
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #555;
+    }
 
-  <label>Mobile:</label><br>
-  <input type="text" name="mobile" required><br>
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
 
-  <button type="submit">Add User</button>
-</form>
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-<script src="/js/validateUserForm.js"></script>
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .success-message {
+      color: green;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Add User</h2>
+
+    {{#if success}}
+      <p class="success-message">✅ User added successfully!</p>
+    {{/if}}
+
+    <form action="/api/users" method="POST" onsubmit="return validateUserForm()">
+      <label>Name:</label>
+      <input type="text" name="name" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" required>
+
+      <label>Mobile:</label>
+      <input type="text" name="mobile" required>
+
+      <button type="submit">Add User</button>
+    </form>
+  </div>
+
+  <script src="/js/validateUserForm.js"></script>
+</body>
+</html>

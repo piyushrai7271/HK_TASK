@@ -1,17 +1,96 @@
-<h2>Tasks for {{user.name}}</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tasks for {{user.name}}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
 
-{{#if tasks.length}}
-  <ul>
-    {{#each tasks}}
-      <li>
-        <strong>{{task_name}}</strong> - {{task_type}}
-      </li>
-    {{/each}}
-  </ul>
-{{else}}
-  <p>No tasks found for this user.</p>
-{{/if}}
+    .task-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
 
-<br>
-<a href="/add-task"><button>Add Another Task</button></a>
-<a href="/"><button>Home</button></a>
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background: #f0f0f0;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: left;
+    }
+
+    strong {
+      color: #007bff;
+    }
+
+    p {
+      color: #888;
+    }
+
+    .btn-group {
+      margin-top: 20px;
+    }
+
+    .btn-group a button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 5px;
+      margin: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-group a button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="task-container">
+    <h2>Tasks for {{user.name}}</h2>
+
+    {{#if tasks.length}}
+      <ul>
+        {{#each tasks}}
+          <li>
+            <strong>{{task_name}}</strong> - {{task_type}}
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No tasks found for this user.</p>
+    {{/if}}
+
+    <div class="btn-group">
+      <a href="/add-task"><button>Add Another Task</button></a>
+      <a href="/"><button>Home</button></a>
+    </div>
+  </div>
+</body>
+</html>

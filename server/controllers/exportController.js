@@ -42,5 +42,5 @@ const exportToExcel = async (req, res) => {
 };
 
 module.exports = {
-  exportToExcel,
+  exportToExcel
 };
