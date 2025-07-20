@@ -1,0 +1,17 @@
+<h2>Tasks for {{user.name}}</h2>
+
+{{#if tasks.length}}
+  <ul>
+    {{#each tasks}}
+      <li>
+        <strong>{{task_name}}</strong> - {{task_type}}
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No tasks found for this user.</p>
+{{/if}}
+
+<br>
+<a href="/add-task"><button>Add Another Task</button></a>
+<a href="/"><button>Home</button></a>
